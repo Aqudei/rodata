@@ -1,0 +1,43 @@
+# Bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Database
+*.sqlite3
+*.db
+
+# Environment Files
+.env
+.env.local
+.env.*.local
+
+# Static files
+/static
+
+# Media files
+/media
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# Backup files
+*.bak
+
+# Other files
+*.log
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+local_settings.py
