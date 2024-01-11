@@ -7,7 +7,8 @@ from django.conf import settings
 class Department(TimestampedModelMixin):
 
     name = models.CharField(max_length=100)
-
+    is_external = models.BooleanField(default=False)
+    
     class Meta:
         verbose_name = _("department")
         verbose_name_plural = _("departments")

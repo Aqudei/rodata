@@ -20,6 +20,9 @@ class Requirement(TimestampedModelMixin):
     parent = models.ForeignKey("self", on_delete=models.SET_NULL, null=True,blank=True)
     due = models.DateTimeField(auto_now=False, auto_now_add=False, null=True,blank=True)
     kind = models.PositiveIntegerField(choices=KINDS)
+    origin = models.ForeignKey(
+        "accounts.Department", on_delete=models.SET_NULL, null=True, blank=True)
+    
     class Meta:
         verbose_name = _("requirement")
         verbose_name_plural = _("requirements")
