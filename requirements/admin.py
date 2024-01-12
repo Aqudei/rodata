@@ -3,6 +3,9 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 from core.models import Attachment
 from .models import (Requirement,Compliance)
 
+class ComplianceInline(admin.StackedInline):
+    model = Compliance
+
 # Register your models here.
 class AttachmentInline(GenericTabularInline):
     model = Attachment
@@ -12,7 +15,7 @@ class RequirementAdmin(admin.ModelAdmin):
     list_display = ('control_num','subject','parent','due','kind','created_at','modified_at')
     search_fields = ('subject',)
     list_filter = ('kind',)
-    inlines = (AttachmentInline,)
+    inlines = (AttachmentInline, ComplianceInline)
 
 
 @admin.register(Compliance)
