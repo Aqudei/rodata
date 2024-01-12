@@ -9,7 +9,7 @@ class AttachmentInline(GenericTabularInline):
     
 @admin.register(Requirement)
 class RequirementAdmin(admin.ModelAdmin):
-    list_display = ('subject','parent','due','kind','created_at','modified_at')
+    list_display = ('control_num','subject','parent','due','kind','created_at','modified_at')
     search_fields = ('subject',)
     list_filter = ('kind',)
     inlines = (AttachmentInline,)
@@ -17,8 +17,8 @@ class RequirementAdmin(admin.ModelAdmin):
 
 @admin.register(Compliance)
 class ComplianceAdmin(admin.ModelAdmin):
-    list_filter = ('subject','requirement','submission_date','point_person')
-    search_fields = ('subject',)
+    list_filter = ('control_num','subject','requirement','submission_date','point_person')
+    search_fields = ('subject','control_num')
     list_filter = ('point_person',)
     inlines = (AttachmentInline,)
     

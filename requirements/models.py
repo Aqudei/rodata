@@ -22,7 +22,7 @@ class Requirement(TimestampedModelMixin):
     kind = models.PositiveIntegerField(choices=KINDS)
     origin = models.ForeignKey(
         "accounts.Department", on_delete=models.SET_NULL, null=True, blank=True)
-    
+    control_num = models.CharField(_("Control Number"), max_length=50, null=True,blank=True)
     class Meta:
         verbose_name = _("requirement")
         verbose_name_plural = _("requirements")
@@ -39,6 +39,7 @@ class Compliance(TimestampedModelMixin):
     requirement = models.ForeignKey("requirements.Requirement", on_delete=models.CASCADE)
     point_person = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     submission_date = models.DateTimeField(default=timezone.now)
+    control_num = models.CharField(_("Control Number"), max_length=50, null=True,blank=True)
     
     class Meta:
         verbose_name = _("compliance")
