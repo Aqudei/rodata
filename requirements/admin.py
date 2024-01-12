@@ -3,12 +3,16 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 from core.models import Attachment
 from .models import (Requirement,Compliance)
 
-class ComplianceInline(admin.StackedInline):
-    model = Compliance
 
 # Register your models here.
 class AttachmentInline(GenericTabularInline):
     model = Attachment
+    extra = 2
+    
+class ComplianceInline(admin.StackedInline):
+    model = Compliance
+    extra = 2
+    inlines = (AttachmentInline,)
     
 @admin.register(Requirement)
 class RequirementAdmin(admin.ModelAdmin):
