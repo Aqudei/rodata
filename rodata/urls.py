@@ -22,7 +22,7 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView
 )
 urlpatterns = [
-    path('grappelli/', include('grappelli.urls')), # grappelli URLS
+    # path('grappelli/', include('grappelli.urls')), # grappelli URLS
     re_path(r'^_nested_admin/', include('nested_admin.urls')),
     path("admin/", admin.site.urls),
     path("doctrack/", include('doctrack.urls')),
