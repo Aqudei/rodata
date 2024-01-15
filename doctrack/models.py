@@ -18,6 +18,7 @@ class Label(models.Model):
 
     def get_absolute_url(self):
         return reverse("label_detail", kwargs={"pk": self.pk})
+    
 # Create your models here.
 class Document(TimestampedModelMixin):
 
