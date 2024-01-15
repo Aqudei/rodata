@@ -10,7 +10,7 @@ class AttachmentInline(nested_admin.NestedGenericTabularInline):
     model = Attachment
     extra = 1
     
-class ComplianceInline(nested_admin.NestedStackedInline):
+class ComplianceInline(nested_admin.NestedTabularInline):
     model = Compliance
     extra = 1
     inlines = (AttachmentInline,)
